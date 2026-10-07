@@ -1,6 +1,6 @@
 {
   "name": "array-fm",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Perform filter + map or map + filter operations on an array in one go",
   "source": "src/index.ts",
   "main": "./dist/index.js",
