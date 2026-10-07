@@ -2,47 +2,60 @@
   "name": "array-fm",
   "version": "1.0.0",
   "description": "Perform filter + map or map + filter operations on an array in one go",
-  "source": "src/index.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.umd.js",
-  "typings": "./dist/index.d.ts",
-  "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
-    "test": "jest",
-    "docs": "typedoc src/index.ts --readme README.md --gitRevision master",
-    "prepublish": "pnpm run build"
-  },
-  "sideEffects": false,
-  "files": [
-    "src",
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alrico88/array-fm"
-  },
   "keywords": [
     "array",
-    "map",
     "filter",
+    "flatmap",
+    "map",
     "reduce"
   ],
-  "author": "Alberto Rico",
+  "homepage": "https://github.com/alrico88/array-fm#readme",
+  "bugs": {
+    "url": "https://github.com/alrico88/array-fm/issues"
+  },
   "license": "MIT",
+  "author": "Alberto Rico",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alrico88/array-fm.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "check": "vp check",
+    "test": "vp test",
+    "prepublishOnly": "vp run build"
+  },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.0",
-    "eslint-plugin-import": "^2.24.2",
-    "jest": "^27.2.0",
-    "microbundle": "^0.13.3",
-    "ts-jest": "^27.0.5",
-    "tslib": "^2.3.1",
-    "typedoc": "^0.22.3",
-    "typedoc-plugin-markdown": "^3.11.0"
+    "@types/node": "^26.1.1",
+    "bumpp": "^11.1.0",
+    "typescript": "^7.0.2",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.7.0",
+      "onFail": "download"
+    }
   }
 }
