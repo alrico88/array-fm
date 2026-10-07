@@ -12,6 +12,8 @@
 ### Functions
 
 - [filterAndMap](modules.md#filterandmap)
+- [filterAndFlatMap](modules.md#filterandflatmap)
+- [flatMapAndFilter](modules.md#flatmapandfilter)
 - [mapAndFilter](modules.md#mapandfilter)
 
 ## Type aliases
@@ -140,3 +142,51 @@ Perform a map on an array and filter the result
 #### Defined in
 
 index.ts:36
+
+___
+
+### filterAndFlatMap
+
+▸ **filterAndFlatMap**<`T`, `Y`>(`array`, `filterFn`, `mapFn`): `Y`[]
+
+Filter a collection, then map each matching item to multiple values.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | `T`[] | Array to filter and flatten |
+| `filterFn` | [`FilterFn`](modules.md#filterfn)<`T`\> | Function to filter the array |
+| `mapFn` | [`MapFn`](modules.md#mapfn)<`T`, `Y`[]\> | Function to map each matching item to an array |
+
+#### Returns
+
+`Y`[]
+
+#### Defined in
+
+index.ts:53
+
+___
+
+### flatMapAndFilter
+
+▸ **flatMapAndFilter**<`T`, `Y`>(`array`, `mapFn`, `filterFn`): `Y`[]
+
+Map each item to multiple values, then filter the flattened result.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | `T`[] | Array to map and filter |
+| `mapFn` | [`MapFn`](modules.md#mapfn)<`T`, `Y`[]\> | Function to map each item to an array |
+| `filterFn` | [`FilterFn`](modules.md#filterfn)<`Y`\> | Function to filter the flattened values |
+
+#### Returns
+
+`Y`[]
+
+#### Defined in
+
+index.ts:77

@@ -1,4 +1,4 @@
-import { filterAndMap, mapAndFilter } from '../src';
+import { filterAndFlatMap, filterAndMap, flatMapAndFilter, mapAndFilter } from '../src';
 
 const testArray = [
   {
@@ -30,5 +30,25 @@ describe('Test map and filter', () => {
       (d) => d.propB * d.propC,
       (d) => d > 6,
     )).toStrictEqual([30]);
+  });
+});
+
+describe('Test filter and flat map', () => {
+  it('Should filter items and flatten their mapped results', () => {
+    expect(filterAndFlatMap(
+      testArray,
+      (d) => d.propB > 2,
+      (d) => [d.propB, d.propC],
+    )).toStrictEqual([3, 10]);
+  });
+});
+
+describe('Test flat map and filter', () => {
+  it('Should flatten mapped results and filter each value', () => {
+    expect(flatMapAndFilter(
+      testArray,
+      (d) => [d.propB, d.propC],
+      (value) => value > 2,
+    )).toStrictEqual([3, 3, 10]);
   });
 });

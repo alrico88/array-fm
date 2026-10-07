@@ -53,6 +53,18 @@ mapAndFilter(
   (d) => d.propB * d.propC,
   (d) => d > 6,
 ) // Returns [30]
+
+filterAndFlatMap(
+  testArray,
+  (d) => d.propB > 2,
+  (d) => [d.propB, d.propC],
+) // Returns [3, 10]
+
+flatMapAndFilter(
+  testArray,
+  (d) => [d.propB, d.propC],
+  (value) => value > 2,
+) // Returns [3, 3, 10]
 ```
 
 ## Documentation
